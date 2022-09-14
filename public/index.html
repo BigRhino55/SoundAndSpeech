@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- DONE -->
+  <head>
+    <title>Student Log</title>
+    <!-- DONE -->
+    <meta charset="uft-8" />
+    <!-- DONE-->
+    <link
+      rel="icon"
+      type="text/html"
+      href="https://imgur.com/gallery/4XZXgyV"
+    />
+    <!-- DONE -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        dark: 'class',
+      };
+    </script>
+  </head>
+  <body class="dark:bg-[1e4119]" onload="bodyFunction()">
+    <div id="mainDiv">
+      <div
+        class="
+          bg-[#1e482c]
+          grid grid-cols-4
+          text-white text-3xl
+          dark:text-gray-200
+          font-bold
+          h-18
+          text-left
+          p-5
+        "
+        id="welcomeBanner"
+      >
+        <div class="dark:text-[8e8c89]">UVU LOG PORTAL</div>
+        <button
+          id="darkMode"
+          class="
+            text-white
+            dark:text-[8e8c89]
+            float-right
+            rounded-lg
+            text-sm
+            p-2.5
+          "
+        >
+          Dark Mode
+        </button>
+      </div>
+      <form onsubmit="return onSubmit();" class="p-5">
+        <h1 class="font-bold text-xl pb-1">Course List</h1>
+        <select
+          aria-label="Select Course"
+          id="course"
+          name="course"
+          data-cy="course_select"
+          class="border-solid border-2 border-green-900 rounded-md mb-3"
+        >
+          <!-- DONE  -->
+          <!-- Use fetch to replace them with dynamic data from GET https://json-server-ft3qa5--3000.local.webcontainer.io/api/v1/courses -->
+          <!-- Use your own unique URL you recorded, not the sample one above. -->
+          <option selected value="chooseCourses">Choose Course</option></select
+        ><br />
+
+        <!-- DONE -->
+        <!-- DONE -->
+        <label for="uvuId" id="uvuIdLabel" class="my-6 font-bold text-lg hidden"
+          >UVU ID</label
+        ><br />
+        <!-- DONE  -->
+        <!-- DONE -->
+        <!-- DONE -->
+        <!-- DONE -->
+        <input
+          type="number"
+          id="uvuId"
+          name="uvuId"
+          data-cy="uvuId_input"
+          placeholder="10234567"
+          minlength="8"
+          maxlength="8"
+          class="border-solid border-2 border-green-900 rounded-md hidden"
+          required
+        />
+        <!-- DONE -->
+        <div id="logsBody" class="my-5 hidden">
+          <h3 id="uvuIdDisplay" data-cy="uvuIdDisplay"></h3>
+          <ul id="logsList" data-cy="logs">
+            <!-- TODO: Click anywhere on the log to toggle visibility of the log (text only, not the date) -->
+          </ul>
+          <div class="pt-5">
+            <label class="font-bold pt-4 text-xl">New Log</label><br />
+            <textarea
+              style="height: 75px"
+              aria-label="add log textarea"
+              data-cy="log_textarea"
+              id="logText"
+              class="
+                border-solid border-2 border-green-900
+                rounded-md
+                mt-1
+                mb-2
+                w-64
+              "
+            ></textarea
+            ><br />
+            <!-- DONE -->
+            <!-- DONE -->
+            <button
+              type="button"
+              id="submit"
+              data-cy="add_log_btn"
+              class="
+                bg-[#1e482c]
+                text-white
+                border-solid border-2 border-green-900
+                rounded-md
+                py-1
+                px-2
+              "
+            >
+              Add Log
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- DONE -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- script src="https://code.jquery.com/jquery-3.6.0.min.js"></script -->
+    <script src="JQLite.js"></script>
+    <script src="script.js"></script>
+  </body>
+  <!-- TODO: add appropriate comments you feel are necessary, if any, for the next coder to understand -->
+</html>
+
+<!-- HEAD -->
+<!-- TODO: move all TODOs that done above to down below here and change the label to DONE:. -->
+<!-- TODO: set the lang attribute to American English -->
+<!-- TODO: set the characterset to utf8 -->
+<!-- TODO: temporarily use stackoverflow's favicon. "https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico"-->
+<!-- TODO: Load your CSS file -->
+
+<!-- BODY -->
+<!-- TODO: write `10234567` as sample data on the input field below  -->
+<!-- TODO: Ensure the character length never exceeds 8 -->
+<!-- TODO: The following options are currently static values to show you sample data. -->
+<!-- TODO: Script tag to your javascript file -->
+<!-- TODO: Don't show the uvu id text input box until a course was selected above. -->
+<!-- TODO: If course ever becomes unselected, don't show the uvu id text input box.-->
+<!-- TODO: Only numbers, no letters or other characters -->
+<!-- TODO: Button should be disabled until there are logs displayed -->
+<!-- TODO: The following options are currently static values to show you an example. You must replace them with dynamic data by ajaxing GET https://json-server-ft3qa5--3000.local.webcontainer.io/logs?courseId=<courseID>&uvuId=<uvuID> -->
+<!-- TODO: When the button is clicked, use fetch to post the new displayed list -->
+<!-- HINT: to get the time that the log was created use the Date() function and then the toLocalString. 
+                    and take out the comma with split and then join. or replace from string. -->
