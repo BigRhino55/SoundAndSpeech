@@ -162,3 +162,8 @@ function pageTheme() {
     //change the tailwind class to enable desired mode
   });
 }
+
+let beat = new Audio('/shallnotpass.mp3');
+document.getElementById('SoundButton').addEventListener('click', (e) => {
+  beat.play();
+});
