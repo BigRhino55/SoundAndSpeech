@@ -2,7 +2,6 @@
 // NOTE: The TODOs are listed in index.html
 
 window.onload = function () {
-  pageTheme();
   console.log('everything is loaded');
   axios
     .get(
@@ -130,38 +129,14 @@ function onSubmit() {
   document.getElementById('logText').value = '';
 }
 
-function pageTheme() {
-  let mode = document.getElementById('darkMode');
-  let html = document.documentElement;
-  if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    html.classList.add('dark');
-    localStorage.theme = 'dark';
-    mode.innerText = 'Light Mode';
-  } else {
-    html.classList.remove('dark');
-    localStorage.theme = 'light';
-    mode.innerText = 'Dark Mode';
-  }
-
-  mode.addEventListener('click', (e) => {
-    //find out which mode is currently selected
-    if (mode.innerText == 'Dark Mode') {
-      html.classList.add('dark');
-      localStorage.theme = 'dark';
-      mode.innerText = 'Light Mode';
-    } else {
-      html.classList.remove('dark');
-      localStorage.theme = 'light';
-      mode.innerText = 'Dark Mode';
-    }
-    //change to the mode that is not selected
-    //change the tailwind class to enable desired mode
-  });
-}
+let speech = new SpeechSynthesisUtterance();
+speech.lang = 'en';
+document.getElementById('TextSpeech').addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log;
+  speech.text = document.querySelector('textarea').value;
+  window.speechSynthesis.speak(speech);
+});
 
 let beat = new Audio('/shallnotpass.mp3');
 document.getElementById('SoundButton').addEventListener('click', (e) => {
